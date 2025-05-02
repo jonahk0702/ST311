@@ -1,0 +1,81 @@
+# 🛰️ Research Project Code Overview
+
+This repository contains all code and notebooks used for our geolocation prediction project. The workflow is divided into several key stages, as outlined below.
+
+---
+
+## 1. Data Creation
+All code relies on preprocessed data generated in:
+
+- `Data processing.ipynb`
+
+> ⚠️ **You must run this notebook first**. It prepares the datasets used across all experiments.
+
+- The preporation includes downloading the dataset from HuggingFace, splitting the images into 3, converting longitiudes and latitudes to numbers, and creating a train test split.
+
+---
+
+
+
+
+## 2. Training from Scratch (CNN)
+
+We train convolutional models from the ground up, without pretrained weights.
+
+### 2.1 Model Declaration
+- Defined in `cnn_scratch.py`
+
+### 2.2 Evaluation
+- Run `cnn_scratch_eval.py` to get metrics  
+- Predictions stored in `cnn_scratch_predictions.csv`  
+- Logs available in `training_scratch_log.txt`
+
+---
+
+## 3. Fine-Tuning a Convolutional Neural Network (CNN)
+
+We fine-tune a pretrained model for geolocation tasks.
+
+### 3.1 Model Declaration
+- Implemented in `cnn_finetune.py`
+
+### 3.2 Evaluation
+- Evaluation logic in `cnn_finetune_eval.py`  
+- Outputs in `cnn_finetune_predictions.csv`  
+- Training details logged in `train_log_finetune.txt`
+
+---
+
+## 4. Fine-Tuning a Vision Transformer (ViT)
+
+We adapt a pretrained Vision Transformer for coordinate regression.
+
+### 4.1 Model Declaration
+- Found in `GeoViTRegressor - adi.py`
+
+### 4.2 Evaluation
+- Logs available in `transformer_training_log.txt`
+
+---
+
+
+
+## 5. Reinforcement Learning (RL)
+
+We experiment with agent-based geolocation prediction using PPO.
+
+### 5.1 Model Declaration
+- Environment and agent defined in `RL_reward_maker.py` and `RL learning.ipynb`
+
+
+### 5.2 Evaluation
+- Error metrics in `RL_model_test_errors.csv`
+
+---
+
+## 6. Evaluation & Miscellaneous
+
+Other useful notebooks and files:
+
+- `test_preds.ipynb` — quick visualization of predictions  
+- `Fine tuning.ipynb`, `Training from scratch.ipynb`, `Training from existing.ipynb` — experiments with various training regimes
